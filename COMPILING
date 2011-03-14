@@ -1,27 +1,54 @@
-wxWASTE builds on GCC or ICC. It has been tested on Linux, and should build on
-*BSD, and other POSIX systems.
+WASTEx builds on GCC. It is currently only supported on x86-64 Linux, but
+should easily build to other systems as well.
 
-Short Guide:
-------------
+Dependencies
+------------------
+WASTEx only depends on a few things: The presence of a C++ compiler,
+GNU Make, GNU Bash, the autotools, wxWidgets and all of their dependencies.
 
-Type the following commands to build WASTE:
+Here are some commands for various operating systems to get you up to date.
+Let us know <https://github.com/volatiles/WASTEx/issues> if we missed anything.
 
-./configure
-make
+Debian/Ubuntu:
+	apt-get install build-essential make libwxGTK2.8-dev wx-common
 
-WASTE will be compiled to an executable named 'waste'.
+* Note: You can also use wxWidgets 2.6 if you use an old distro.
 
-Long Guide:
------------
+Configuring
+------------------
+If you got the package via source control, you may need to build the configure
+script. Do this with the following:
 
-If, for whatever reason, you wish to rebuild the configure script, a script is
-provided to execute the autotools programs required. To do this, run the
-following commands:
+	./autogen.sh
 
-./autogen.sh
-./configure
-make
+If this command fails, it's possible you need to install GNU autotools. Most
+error messages are fatal even if they aren't listed as such.
 
-WASTE will be compiled to an executable named 'waste'.
+Once this completes, follow up with the configure command.
 
-Enjoy.
+	./configure
+
+If the configure command fails, you may want to make sure it's not complaining
+about a missing library or header. If it's a missing header, you may want to
+file an issue. If it's a missing library, install it.
+
+Now that configure is finished, we should have a makefile.
+
+Compiling
+------------------
+To compile, simply issue the make command with no parameters.
+
+	make
+
+Once finished, you should see a new executable file in the cwd - 'wastex.'
+You can run from the directory by issuing:
+
+	./wastex
+
+Installing
+------------------
+To install, run the following command:
+
+	sudo make install
+
+which will make WASTEx runnable with the command 'wastex.'
