@@ -1,0 +1,10 @@
+WASTEx 0.9
+------------------
+
+WASTEx is a fork of wxWaste, a multiplatform version of the WASTE mesh-network
+file sharing application. WASTEx attempts to be more modern, by improving on
+the portability and P2P features of WASTE.
+
+Currently in 0.9, changes are made to make the application run under 64-bit
+Linux. This version is preliminary; it uses size_t as a pointer-size integer,
+which is unreliable and should be fixed.
